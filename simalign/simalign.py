@@ -17,7 +17,7 @@ except ImportError:
 import torch
 from transformers import *
 
-from simalign.utils import get_logger
+from utils import get_logger
 
 LOG = get_logger(__name__)
 
