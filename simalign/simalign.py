@@ -62,6 +62,7 @@ class EmbeddingLoader(object):
 	def get_embed_list(self, sent_pair: List[List[str]]) -> torch.Tensor:
 		if self.emb_model is not None:
 			inputs = self.tokenizer(sent_pair, is_pretokenized=True, padding=True, truncation=True, return_tensors="pt")
+			inputs.to(self.device)
 			outputs = self.emb_model(**inputs)[2][self.layer]
 
 			return outputs[:, 1:-1, :]
