@@ -17,8 +17,6 @@ except ImportError:
 import torch
 from transformers import *
 
-LOG = get_logger(__name__)
-
 #from utils
 def get_logger(name: Text, filename: Text = None, level: int = logging.DEBUG) -> logging.Logger:
     logger = logging.getLogger(name)
@@ -37,6 +35,8 @@ def get_logger(name: Text, filename: Text = None, level: int = logging.DEBUG) ->
         logger.addHandler(fh)
 
     return logger
+
+LOG = get_logger(__name__)
 
 
 class EmbeddingLoader(object):
