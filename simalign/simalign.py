@@ -17,8 +17,6 @@ except ImportError:
 import torch
 from transformers import *
 
-from utils import get_logger
-
 LOG = get_logger(__name__)
 
 #from utils
