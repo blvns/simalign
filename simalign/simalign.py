@@ -87,7 +87,6 @@ class EmbeddingLoader(object):
 		else:
 			return None
 
-
 class SentenceAligner(object):
 	def __init__(self, model: str = "bert", token_type: str = "bpe", distortion: float = 0.0, matching_methods: str = "mai", device: str = "cpu", layer: int = 8):
 		model_names = {
@@ -198,6 +197,8 @@ class SentenceAligner(object):
 				l2_b2w_map += [i for x in wlist]
 
 		vectors = self.embed_loader.get_embed_list([src_sent, trg_sent]).cpu().detach().numpy()
+
+		print(vectors)
 		if self.token_type == "word":
 			w2b_map = []
 			cnt = 0
@@ -221,6 +222,8 @@ class SentenceAligner(object):
 					w_vector.append(vectors[l_id][word_set].mean(0))
 				new_vectors.append(np.array(w_vector))
 			vectors = np.array(new_vectors)
+		print(vectors)
+		quit()
 
 		all_mats = {}
 		sim = self.get_similarity(vectors[0, :len(bpe_lists[0])], vectors[1, :len(bpe_lists[1])])
