@@ -198,7 +198,7 @@ class SentenceAligner(object):
 
 		vectors = self.embed_loader.get_embed_list([src_sent, trg_sent]).cpu().detach().numpy()
 
-		print(vectors)
+		print(vectors.shape)
 		if self.token_type == "word":
 			w2b_map = []
 			cnt = 0
@@ -222,7 +222,7 @@ class SentenceAligner(object):
 					w_vector.append(vectors[l_id][word_set].mean(0))
 				new_vectors.append(np.array(w_vector))
 			vectors = np.array(new_vectors)
-		print(vectors)
+		print(vectors.shape)
 		quit()
 
 		all_mats = {}
