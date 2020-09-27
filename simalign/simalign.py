@@ -1,7 +1,6 @@
 # coding=utf-8
 
 import os
-import logging
 from typing import Dict, List, Tuple, Union, Text
 
 import numpy as np
@@ -16,6 +15,8 @@ except ImportError:
 	nx = None
 import torch
 from transformers import *
+
+import logging
 
 #from utils
 def get_logger(name: Text, filename: Text = None, level: int = logging.DEBUG) -> logging.Logger:
